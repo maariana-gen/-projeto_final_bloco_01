@@ -1,3 +1,5 @@
+import { colors } from "../util/Colors";
+
 export abstract class Produto{
 
     private _id: number;
@@ -53,7 +55,7 @@ export abstract class Produto{
     public vender(quantidade: number): boolean{
 
         if (this._estoque < quantidade){
-            console.log("\nEstoque insuficiente!");
+            console.log(colors.fg.red, "\nEstoque insuficiente!", colors.reset);
             return false;
         }
 
@@ -67,9 +69,9 @@ export abstract class Produto{
 
     public visualizar(): void{
 
-        console.log("\n\n*****************************************************");
-        console.log("Dados do Produto:");
-        console.log("*****************************************************");
+        console.log(colors.fg.yellow, "\n\n*****************************************************", colors.reset);
+        console.log(colors.fg.magenta, "Dados do Produto:", colors.reset);
+        console.log(colors.fg.yellow, "*****************************************************", colors.reset);
         console.log("ID do produto: " + this._id);
         console.log("Nome: " + this._nome);
         console.log("Tipo: " + this._tipo);
